@@ -1,0 +1,37 @@
+const
+	STANDART_SET = 12;
+
+var
+	a, b, c	: integer;
+	correct, total	: integer;
+	r		: boolean;
+	s		: string;
+
+begin
+	correct := 0;
+	total := 0;
+    randomize;
+	repeat
+		s := 'Thats'' right!';
+		a := 2 + random(10);
+	    b := 2 + random(10);
+	    writeln;
+	    write('# ', total + 1,'     ', a, ' * ',b,' = ');
+	    readln(c);
+	    if c = 0 then
+	    	break;
+	    total := total + 1;
+	    correct := correct + 1;
+	    r := c = a * b;
+	    if not r then begin
+	    	s := 'You''re a dumb fellow! Learn up Multiplication table';
+	    	correct := correct - 1;
+	    end;
+	    writeln (s);
+	until total = STANDART_SET;
+
+	writeln;
+	writeln('Total questions: ', total);
+	writeln('Correct answers: ', correct);
+
+end.
